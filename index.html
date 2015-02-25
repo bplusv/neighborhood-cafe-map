@@ -5,12 +5,28 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/app.css">
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+	<style>
+      #map-canvas {
+        height: 500px;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
 </head>
 <body>
+	
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-xs-3">
 				<h1 class="text-center test" data-bind="text: welcome"></h1>
+				<ul class="list-group" data-bind="foreach: places">
+	                <li class="list-group-item" data-bind="click: $parent.changeCurrentPlace, 
+	                        text: name, css: { active: $parent.currentPlace().name == $data.name}"></li>
+	            </ul>
+			</div>
+			<div class="col-xs-9">
+				<div id="map-canvas"></div>
 			</div>
 		</div>
 	</div>
