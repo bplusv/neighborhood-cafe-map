@@ -17,13 +17,21 @@
 <body>
 	
 	<div class="container">
+		<h1 class="lead text-center">Neighborhood Map</h1>
 		<div class="row">
 			<div class="col-xs-3">
-				<h1 class="text-center test" data-bind="text: welcome"></h1>
-				<ul class="list-group" data-bind="foreach: places">
-	                <li class="list-group-item" data-bind="click: $parent.changeCurrentPlace, 
-	                        text: name, css: { active: $parent.currentPlace().name == $data.name}"></li>
-	            </ul>
+				<div class="form-group has-feedback">
+				    <label class="control-label">Search</label>
+				    <input type="text" data-bind="textInput: search" class="form-control" placeholder="Search for..." />
+				    <i class="glyphicon glyphicon-search form-control-feedback"></i>
+				</div>
+			    <div class="panel panel-default">
+			    	<div class="panel-heading">Key Locations</div>
+					<ul class="list-group" data-bind="foreach: filteredPlaces">
+		                <li class="list-group-item" data-bind="click: $parent.changeCurrentPlace, 
+		                        text: name, css: { active: $parent.currentPlace().name == $data.name}"></li>
+		            </ul>
+		        </div>
 			</div>
 			<div class="col-xs-9">
 				<div id="map-canvas"></div>
