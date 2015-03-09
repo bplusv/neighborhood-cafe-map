@@ -11,14 +11,14 @@ var ViewModel = function() {
   });
 
   self.places = ko.observableArray([]);
-  self.currentPlace = ko.observable({});
-
   self.search = ko.observable('');
 
   self.filteredPlaces = ko.computed(function() {
-    self.currentPlace({});
     return self.places().filter(function(place){
-      return place.name.indexOf(self.search()) > -1;
+      var search = self.search().toLowerCase();
+      var placeName = place.name.toLowerCase();
+
+      return placeName.indexOf(search) > -1;
     });
   }, this);
 
@@ -46,6 +46,10 @@ var ViewModel = function() {
           });
           google.maps.event.addListener(place.marker, 'click', function() {
             self.infoWindow.open(self.map, place.marker);
+            place.marker.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(function() {
+              place.marker.setAnimation(null);
+            }, 700);
           });
         });
 
@@ -53,8 +57,14 @@ var ViewModel = function() {
     });
   };
 
-  self.changeCurrentPlace = function(place) {
-    self.currentPlace(place);
+  self.showPlace = function(place) {
+    $('.navmenu.canvas-slid').offcanvas('hide');
+
+    self.infoWindow.open(self.map, place.marker);
+    place.marker.setAnimation(google.maps.Animation.BOUNCE);
+    setTimeout(function() {
+      place.marker.setAnimation(null);
+    }, 700);
   };
 };
 
