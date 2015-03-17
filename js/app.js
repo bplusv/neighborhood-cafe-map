@@ -17,6 +17,8 @@ var ViewModel = function() {
       var placeName = place.name.toLowerCase();
 
       return placeName.indexOf(search) > -1;
+    }).sort(function (l, r) {
+      return l.name.toLowerCase() > r.name.toLowerCase() ? 1 : -1;
     });
   }, this);
 
@@ -53,7 +55,7 @@ var ViewModel = function() {
   };
 
   self.showPlace = function(place) {
-    self.loadFoursquare();
+    self.loadFoursquare(place);
     self.infoWindow.open(self.map, place.marker);
     place.marker.setAnimation(google.maps.Animation.BOUNCE);
     setTimeout(function() {
@@ -61,8 +63,10 @@ var ViewModel = function() {
     }, 700);
   };
 
-  self.loadFoursquare = function() {
-    var url = 'https://api.foursquare.com/v2/venues/502707c7e4b0fe423d9d34e2?client_id=GYEK0PESSPOVGTN1AYR0XFPTHGPVGZDICA1ELEUZQ0M3MUFR&client_secret=JGKE1IPGETB11KPSWTP05HKMY0SF3ZQ4ENPIFD1HYVPY0JVF&v=20130815';
+  self.loadFoursquare = function(place) {    
+    var url = 'https://api.foursquare.com/v2/venues/{{venue_id}}?client_id=GYEK0PESSPOVGTN1AYR0XFPTHGPVGZDICA1ELEUZQ0M3MUFR&client_secret=JGKE1IPGETB11KPSWTP05HKMY0SF3ZQ4ENPIFD1HYVPY0JVF&v=20130815';
+
+    url = url.replace('{{venue_id}}', place.foursquare_id);
     return $.getJSON(url).then(function(data) {
         var place = {};
 

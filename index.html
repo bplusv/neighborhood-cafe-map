@@ -12,24 +12,26 @@
 <body>
 
 	<nav class="navmenu navmenu-default navmenu-fixed-left offcanvas-sm">
-		<a class="navmenu-brand visible-md visible-lg" href="#">Neighborhood Map</a>
-		<div class="form-group has-feedback">
-		    <input type="text" data-bind="textInput: search" class="form-control" placeholder="Search" />
-		    <i class="glyphicon glyphicon-search form-control-feedback"></i>
-		</div>
+		<div class="navmenu-body">
+			<a class="navmenu-brand visible-md visible-lg" href="#">Neighborhood Map</a>
+			<div class="form-group has-feedback">
+			    <input type="text" data-bind="textInput: search" class="form-control" placeholder="Search" />
+			    <i class="glyphicon glyphicon-search form-control-feedback"></i>
+			</div>
 
-		<div data-bind="if: filteredPlaces().length">
-			<div class="panel panel-default">
-				<div class="panel-heading">Great Places</div>
+			<div data-bind="if: filteredPlaces().length" class="places-container">
+				<div class="panel panel-default">
+					<div class="panel-heading">Great Places</div>
 
-				<div class="list-group" data-bind="foreach: filteredPlaces">
-					<a href="#" class="list-group-item offcanvas-place" data-bind="click: $parent.selectPlaceFromList, text: name"></a>
+					<div class="list-group" data-bind="foreach: filteredPlaces">
+						<a href="#" class="list-group-item offcanvas-place" data-bind="click: $parent.selectPlaceFromList, text: name"></a>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div data-bind="ifnot: filteredPlaces().length">
-			<p class="nofound-places">No results found.</p>
+			<div data-bind="ifnot: filteredPlaces().length">
+				<p class="nofound-places">No results found.</p>
+			</div>
 		</div>
 	</nav>
 

@@ -16,13 +16,50 @@ body {
  * Menu for mobile (Off-Canvas)
  */
 .navmenu {
-  width: 150px;
+  width: 200px;
   padding: 60px 10px 10px;
+}
+
+.navmenu-body {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
 
 .navmenu-brand {
   text-align: center;
 }
+
+/*
+ * Places list
+ */
+.places-container {
+  position: absolute;
+  top: 49px;
+  bottom: 0;
+  width: 100%;
+}
+
+.places-container .panel {
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.places-container .list-group {
+  position: absolute;
+  top: 45px;
+  bottom: 0;
+  overflow: auto;
+}
+
+.nofound-places {
+  font-size: 1em;
+  text-align: center;
+}
+
 
 .navbar {
   display: block;
@@ -71,15 +108,6 @@ body {
   }
 }
 
-
-/*
- * App components
- */
-.nofound-places {
-	margin-top: 15px;
-	font-size: 1em;
-	text-align: center;
-}
 
 #map-canvas {
 	height: 100%;
