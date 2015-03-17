@@ -16,7 +16,7 @@ body {
  * Menu for mobile (Off-Canvas)
  */
 .navmenu {
-  width: 60%;
+  width: 150px;
   padding: 60px 10px 10px;
 }
 
@@ -62,7 +62,7 @@ body {
   }
 
   .navmenu {
-  	width: 30%;
+  	width: 300px;
   	padding: 0px 15px 15px 15px;
   }
 
