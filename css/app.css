@@ -20,45 +20,18 @@ body {
   padding: 60px 10px 10px;
 }
 
-.navmenu-body {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
 .navmenu-brand {
   text-align: center;
   padding: 20px 15px;
   margin: 0;
 }
 
+
 /*
  * Places list
  */
-.places-container {
-  position: absolute;
-  top: 49px;
-  bottom: 0;
-  width: 100%;
-}
 
-.places-container .panel {
-  margin: 0;
-  top: 0;
-  bottom: 0;
-  position: absolute;
-  width: 100%;
-}
-
-.places-container .list-group {
-  position: absolute;
-  top: 41px;
-  bottom: 0;
-  overflow: auto;
-  width: 100%;
-}
-
-.places-container .list-group a {
+.places a {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -110,10 +83,6 @@ body {
   .navmenu {
   	width: 300px;
   	padding: 0px 15px 15px 15px;
-  }
-
-  .places-container {
-    top: 109px;
   }
 
   .navbar {
