@@ -24,7 +24,7 @@
 					<div class="panel-heading">Great Places</div>
 
 					<div class="list-group" data-bind="foreach: filteredPlaces">
-						<a href="#" class="list-group-item offcanvas-place" data-bind="click: $parent.selectPlaceFromList, text: name"></a>
+						<a href="#" class="list-group-item offcanvas-place" data-bind="click: $parent.selectPlaceFromList, text: name, attr: {title: name}"></a>
 					</div>
 				</div>
 			</div>

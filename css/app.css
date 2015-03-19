@@ -28,6 +28,8 @@ body {
 
 .navmenu-brand {
   text-align: center;
+  padding: 20px 15px;
+  margin: 0;
 }
 
 /*
@@ -50,9 +52,16 @@ body {
 
 .places-container .list-group {
   position: absolute;
-  top: 45px;
+  top: 41px;
   bottom: 0;
   overflow: auto;
+  width: 100%;
+}
+
+.places-container .list-group a {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .nofound-places {
@@ -101,6 +110,10 @@ body {
   .navmenu {
   	width: 300px;
   	padding: 0px 15px 15px 15px;
+  }
+
+  .places-container {
+    top: 109px;
   }
 
   .navbar {

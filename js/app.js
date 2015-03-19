@@ -76,15 +76,33 @@ var ViewModel = function() {
         place.address = data.response.venue.location.formattedAddress[0];
         place.likes = data.response.venue.likes.count;
         place.photo = data.response.venue.bestPhoto.prefix;
-        place.photo += '100x150';
+        place.photo += '120x120';
         place.photo += data.response.venue.bestPhoto.suffix;
+        place.tips = data.response.venue.tips.groups[0].items[0].text;
 
-        var content = '<p>' + place.name + '</p>';
-        content += '<p>' + place.rating + '</p>';
-        content += '<p>' + place.likes + '</p>';
-        content += '<p>' + place.address + '</p>';
-        content += '<p> <a href="' + place.url + '" target="_blank">Click here</a> </p>';
-        content += '<img src="' + place.photo + '" />';
+        var content = '<div class="container" style="width: 350px;">';
+          content += '<h4 class="lead text-center">' + place.name + '</h4>';
+          content += '<div class="row">';
+            content += '<div class="col-xs-5">';
+              content += '<img src="' + place.photo + '" />';
+            content += '</div>';
+            content += '<div class="col-xs-7">';
+              content += '<span class="text-info"><span class="glyphicon glyphicon-star"></span>&nbsp;' + place.rating + '</span>&nbsp;';
+              content += '&nbsp;<span><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;' + place.likes + '</span>';
+              content += '<p>' + place.address + '</p>';
+              content += '<p>' + place.tips + '</p>';
+            content += '</div>';
+          content += '</div>';
+          content += '<br />';
+          content += '<p class="text-center"><a href="' + place.url + '" target="_blank"><img style="width: 50%" alt="Foursquare link" src="https://ss0.4sqi.net/img/poweredByFoursquare/poweredby-one-color-cdf070cc7ae72b3f482cf2d075a74c8c.png" /></a></p>';
+        content += '</div>';
+
+        // content += '<h4 class="lead text-center">' + place.name + '</h4>';
+        // content += '<img class="pull-left" style="margin: 0 10px 10px 0;" src="' + place.photo + '" />';
+        // content += '<p class="text-info">' + place.rating + '&nbsp;<span class="glyphicon glyphicon-star"></span></p>';
+        // content += '<p>' + place.likes + '&nbsp;<span class="glyphicon glyphicon-thumbs-up"></span></p>';
+        // content += '<p class="clearfix">' + place.address + '</p>';
+        // content += '<p class="text-center"><a href="' + place.url + '" target="_blank"><img style="width: 60%" alt="Foursquare link" src="https://ss0.4sqi.net/img/poweredByFoursquare/poweredby-one-color-cdf070cc7ae72b3f482cf2d075a74c8c.png" /></a></p>';
 
         self.infoWindow.setContent(content);
     });
