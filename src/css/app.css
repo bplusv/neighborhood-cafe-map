@@ -1,0 +1,127 @@
+/**
+ * Global app styles, setup height to viewport height.
+ */
+html, 
+body,
+.container {
+  height: 100%;
+}
+
+body {
+  padding: 50px 0 0 0;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding: 0 0 0 300px;
+  }
+}
+
+
+/**
+ * Mobile top bar and hamburguer icon.
+ */
+.navbar {
+  display: block;
+  text-align: center;
+  z-index: 2;
+}
+
+/* IE8 fix */
+@media (min-width: 992px) {
+  .navbar {
+    display: none !important;
+  }
+}
+
+.navbar-brand {
+  display: inline-block;
+  float: none;
+}
+
+.navbar-toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 15px;
+}
+
+/* Fix for the hamburguer icon. */
+@media (min-width: 1px) {
+  .navbar-toggle {
+    display: block !important;
+  }
+}
+
+
+/**
+ * Places list side menu.
+ */
+.navmenu {
+  width: 250px;
+  padding: 60px 10px 10px;
+  z-index: 1;
+}
+
+@media (min-width: 992px) {
+  .navmenu {
+    width: 300px;
+    padding: 0px 15px 15px;
+  }
+}
+
+.navmenu-brand {
+  text-align: center;
+  padding: 20px 15px;
+  margin: 0;
+}
+
+.places-list a {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.nofound-places {
+  font-size: 1em;
+  text-align: center;
+}
+
+
+/**
+ * Google maps canvas container.
+ */
+.container {
+  padding: 0;
+  max-width: 100%;
+}
+
+#map-canvas {
+  height: 100%;
+}
+
+
+/**
+ * Foursquare infoWindow for selected place.
+ */
+.foursquare-info-window {
+  text-align: center;
+  min-height: 236px;
+  width: 220px;
+}
+
+@media (min-width: 992px) {
+  .foursquare-info-window {
+    text-align: left;
+    width: 350px;
+  }
+}
+
+.foursquare-place-photo {
+  height: 120px;
+  margin-bottom: 10px;
+}
+
+.foursquare-logo {
+  width: 150px;
+}

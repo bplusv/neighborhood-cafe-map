@@ -37,7 +37,7 @@ var ViewModel = function() {
   });
 
   self.init = function() {
-    return $.getJSON('js/places.json').then(function(jsonPlaces) {
+    return $.getJSON('data/places.json').then(function(jsonPlaces) {
         jsonPlaces.forEach(function(place) {
           place.marker = new google.maps.Marker({
               position: new google.maps.LatLng(place.lat, place.lng),
