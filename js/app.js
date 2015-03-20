@@ -71,31 +71,32 @@ var ViewModel = function() {
     return $.getJSON(url).then(function(data) {
         var place = {};
 
-        place.name = data.response.venue.name;
-        place.url = data.response.venue.shortUrl;
-        place.rating = data.response.venue.rating;
-        place.address = data.response.venue.location.formattedAddress;
-        place.likes = data.response.venue.likes.count;
+        place.name = data.response.venue.name || '';
+        place.url = data.response.venue.shortUrl || '';
+        place.rating = data.response.venue.rating || 0;
+        place.address = data.response.venue.location.formattedAddress[0] || '';
+        place.city = data.response.venue.location.formattedAddress[1] || '';
+        place.likes = data.response.venue.likes.count || 0;
         place.photo = data.response.venue.bestPhoto.prefix;
         place.photo += '120x120';
         place.photo += data.response.venue.bestPhoto.suffix;
-        place.tips = data.response.venue.tips.groups[0].items[0].text;
+        place.tips = data.response.venue.tips.groups[0].items[0].text || '';
 
-        var content = '<div class="container" style="width: 350px; min-height: 236px;">';
+        var content = '<div class="container foursquare-info-window">';
           content += '<h4 class="lead text-center">' + place.name + '</h4>';
           content += '<div class="row">';
-            content += '<div class="col-xs-5">';
-              content += '<img style="height: 120px;" src="' + place.photo + '" />';
+            content += '<div class="col-md-5 text-center">';
+              content += '<img class="foursquare-place-photo" src="' + place.photo + '" />';
             content += '</div>';
-            content += '<div class="col-xs-7">';
+            content += '<div class="col-md-7">';
               content += '<span class="text-info"><span class="glyphicon glyphicon-star"></span>&nbsp;' + place.rating + '</span>&nbsp;';
               content += '&nbsp;<span><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;' + place.likes + '</span>';
               content += '<p>' + place.address + '</p>';
-              content += '<p>' + place.tips + '</p>';
+              content += '<p>' + place.city + '</p>';
+              content += '<p class="hidden-xs hidden-sm">' + place.tips + '</p>';
             content += '</div>';
           content += '</div>';
-          content += '<br />';
-          content += '<p class="text-center"><a href="' + place.url + '" target="_blank"><img style="width: 50%" alt="Foursquare link" src="https://ss0.4sqi.net/img/poweredByFoursquare/poweredby-one-color-cdf070cc7ae72b3f482cf2d075a74c8c.png" /></a></p>';
+          content += '<p class="text-center"><a href="' + place.url + '" target="_blank"><img class="foursquare-logo" alt="Foursquare link" src="https://ss0.4sqi.net/img/poweredByFoursquare/poweredby-one-color-cdf070cc7ae72b3f482cf2d075a74c8c.png" /></a></p>';
         content += '</div>';
 
         self.infoWindow.setContent(content);
