@@ -5,9 +5,9 @@
 	<title>Neighborhood Map</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.min.css">
-	<link rel="stylesheet" href="css/app.css">
+	<!-- bower:css -->
+    <!-- endinject -->
+    <link href="css/main.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -95,8 +95,7 @@
 			<p class="text-center">
 				<a href="{{place.url}}" target="_blank">
 					<img class="foursquare-logo" alt="Foursquare link" 
-						src="https://ss0.4sqi.net/img/poweredByFoursquare/
-							poweredby-one-color-cdf070cc7ae72b3f482cf2d075a74c8c.png" />
+						src="img/powered-by-foursquare.png" />
 				</a>
 			</p>
 
@@ -104,14 +103,15 @@
 	</script>
 
 
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+	<!-- bower:js -->
+    <!-- endinject -->
 	<script src="https://maps.googleapis.com/maps/api/js"></script>
-	<script src="bower_components/knockout/dist/knockout.js"></script>
+	<script type="text/javascript" src="js/app.min.js"></script>
+<!--
 	<script src="model/Place.js"></script>
 	<script src="viewModel/FoursquareViewModel.js"></script>
 	<script src="viewModel/MapViewModel.js"></script>
 	<script src="viewModel/AppViewModel.js"></script>
+-->
 </body>
 </html>
