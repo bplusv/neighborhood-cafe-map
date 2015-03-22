@@ -1,7 +1,16 @@
 var AppViewModel = function() {
   var self = this;
+  self.mapsErrorTemplate = $('[data-template=maps-error]');
   self.places = ko.observableArray([]);
   self.search = ko.observable('');
+
+  /**
+   * Check if google maps loaded correctly before proceeding.
+   */
+  if (typeof google === "undefined") {
+    $('#map-canvas').html(self.mapsErrorTemplate.html());
+    return;
+  }
   self.mapViewModel = new MapViewModel('map-canvas');
 
 

@@ -10,57 +10,57 @@ var gulp = require("gulp"),
   watch = require('gulp-watch');
 
 gulp.task('clean', [], function() {
-  return del('dist/*');
+  return del.sync('dist/*');
 });
 
 gulp.task("html", function() {
-    return gulp.src("src/**/*.html")
-      .pipe(inject(
-          gulp.src(
-            mainBowerFiles(),
-            {read: false, cwd: "bower_components"}
-          ),
-          {name: "bower", addPrefix: "lib"}
-      ))
-      .pipe(minifyHTML())
-      .pipe(gulp.dest("dist"));
+  return gulp.src("src/**/*.html")
+    .pipe(inject(
+      gulp.src(
+        mainBowerFiles(),
+        {read: false, cwd: "bower_components"}
+      ),
+      {name: "bower", addPrefix: "lib"}
+    ))
+    .pipe(minifyHTML())
+    .pipe(gulp.dest("dist"));
 });
  
 gulp.task("js", function() {
-    return gulp.src("src/js/**/*.js")
-      .pipe(sourcemaps.init())
-      .pipe(concat("app.min.js"))
-      .pipe(uglify())
-      .pipe(sourcemaps.write())
-      .pipe(gulp.dest("dist/js"));
+  return gulp.src("src/js/**/*.js")
+    .pipe(sourcemaps.init())
+    .pipe(concat("app.min.js"))
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest("dist/js"));
 });
 
 gulp.task("json", function() {
-    return gulp.src("src/*.json")
-      .pipe(gulp.dest("dist"));
+  return gulp.src("src/*.json")
+    .pipe(gulp.dest("dist"));
 });
 
 gulp.task("css", function() {
-    return gulp.src("src/css/**/*.css")
-      .pipe(sourcemaps.init())
-      .pipe(concat("main.min.css"))
-      .pipe(cssmin())
-      .pipe(sourcemaps.write())
-      .pipe(gulp.dest("dist/css"));
+  return gulp.src("src/css/**/*.css")
+    .pipe(sourcemaps.init())
+    .pipe(concat("main.min.css"))
+    .pipe(cssmin())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest("dist/css"));
 });
 
 gulp.task("img", function() {
-    return gulp.src("src/img/**/*.*")
-      .pipe(gulp.dest("dist/img"));
+  return gulp.src("src/img/**/*.*")
+    .pipe(gulp.dest("dist/img"));
 });
 
 gulp.task("bower", function() {
-    return gulp.src(mainBowerFiles(), {base: "bower_components"})
-      .pipe(gulp.dest("dist/lib"));
+  return gulp.src(mainBowerFiles(), {base: "bower_components"})
+    .pipe(gulp.dest("dist/lib"));
 });
 
 gulp.task("watch", function () {
-    gulp.watch("src/**/*.*", ["default"]);
-  });
+  gulp.watch("src/**/*.*", ["default"]);
+});
 
 gulp.task("default", ["clean", "html", "js", "json", "css", "img", "bower"]);

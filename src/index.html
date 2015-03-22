@@ -58,12 +58,10 @@
 
 	<!-- Template for infoWindow loading place -->
 	<script type="text/template" data-template="place-loading">
-		<div style="height: 150px; width: 150px;">
-			<img style="margin: 43px 0 0 55px;" src="img/spinner.gif" />
-		</div>
+		<img class="foursquare-place-loading" src="img/spinner.gif" />
 	</script>
 
-	<!-- Template for infoWindow Foursquare place info -->
+	<!-- Template for infoWindow place info -->
 	<script type="text/template" data-template="place-foursquare">
 		<div class="container foursquare-info-window">
 			<h4 class="lead text-center">{{place.name}}</h4>
@@ -102,16 +100,26 @@
 		</div>
 	</script>
 
+	<!-- Template for infoWindow error -->
+	<script type="text/template" data-template="place-error">
+		<p class="foursquare-place-error text-danger">
+			Couldn&#39;t retrieve place info.<br>
+			Please try again later.
+		</p>
+	</script>
+
+	<!-- Template for google maps error -->
+	<script type="text/template" data-template="maps-error">
+		<p class="map-error lead text-center text-danger">
+			Couldn&#39;t load google maps.<br>
+			Please reload the page.
+		</p>
+	</script>
+
 
 	<!-- bower:js -->
     <!-- endinject -->
 	<script src="https://maps.googleapis.com/maps/api/js"></script>
 	<script type="text/javascript" src="js/app.min.js"></script>
-<!--
-	<script src="model/Place.js"></script>
-	<script src="viewModel/FoursquareViewModel.js"></script>
-	<script src="viewModel/MapViewModel.js"></script>
-	<script src="viewModel/AppViewModel.js"></script>
--->
 </body>
 </html>

@@ -100,6 +100,10 @@ body {
   height: 100%;
 }
 
+.map-error {
+  padding: 30%;
+}
+
 
 /**
  * Foursquare infoWindow for selected place.
@@ -124,4 +128,12 @@ body {
 
 .foursquare-logo {
   width: 150px;
+}
+
+.foursquare-place-loading {
+  padding: 45px 40px 45px 60px;
+}
+
+.foursquare-place-error {
+  padding: 40px 10px 30px 25px;
 }

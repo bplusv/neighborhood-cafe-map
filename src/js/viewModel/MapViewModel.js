@@ -1,6 +1,7 @@
 var MapViewModel = function(mapCanvasId) {
   var self = this;
-  self.loadingTemplate = $('[data-template=place-loading]');
+  self.placeLoadingTemplate = $('[data-template=place-loading]');
+  self.placeErrorTemplate = $('[data-template=place-error]');
   self.foursquareViewModel = new FoursquareViewModel();
   self.infoWindow = new google.maps.InfoWindow();
   var mapCanvasDom = document.getElementById(mapCanvasId);
@@ -47,10 +48,12 @@ var MapViewModel = function(mapCanvasId) {
    * Show additional information for the selected place.
    */
   self.showPlace = function(place) {
-    self.infoWindow.setContent(self.loadingTemplate.html());
+    self.infoWindow.setContent(self.placeLoadingTemplate.html());
     self.foursquareViewModel.loadPlaceInfo(place.foursquareId())
     .then(function(placeInfo) {
       self.infoWindow.setContent(placeInfo);
+    }, function() {
+      self.infoWindow.setContent(self.placeErrorTemplate.html());
     });
     self.infoWindow.open(self.map, place.marker);
     place.marker.setAnimation(google.maps.Animation.BOUNCE);
