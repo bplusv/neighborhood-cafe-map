@@ -21,7 +21,7 @@ $ gulp
 - Separation of concerns:
     * Views as templates in HTML.
     * Model as JavaScript POJO Classes.
-    * ViewModels as components (app, map & fousquare).
+    * ViewModels as components (app, map & foursquare).
 - Build process using GulpJS: genererates minified code to reduce size and HTTP requests.
 - Shows additional place info in an asynchonous manner, using the Foursquare API.
 - In the case of failed data retrievals, errors are handled and a friendly massage displayed.
