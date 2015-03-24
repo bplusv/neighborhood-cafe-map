@@ -20,9 +20,9 @@ gulp.task("html", function() {
         mainBowerFiles(),
         {read: false, cwd: "bower_components"}
       ),
-      {name: "bower", addPrefix: "lib"}
+      {name: "bower", addPrefix: "lib", addRootSlash: false}
     ))
-    .pipe(minifyHTML())
+    .pipe(minifyHTML({quotes:true}))
     .pipe(gulp.dest("dist"));
 });
  
