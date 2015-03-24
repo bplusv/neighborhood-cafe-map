@@ -1,4 +1,7 @@
 var gulp = require("gulp"),
+  browserify = require('browserify'),
+  streamify  = require('gulp-streamify'),
+  source = require('vinyl-source-stream'),
   minifyHTML = require("gulp-minify-html"),
   concat = require("gulp-concat"),
   uglify = require("gulp-uglify"),
@@ -24,12 +27,12 @@ gulp.task("html", function() {
     .pipe(minifyHTML({quotes:true}))
     .pipe(gulp.dest("dist"));
 });
- 
-gulp.task("js", function() {
-  return gulp.src("src/js/**/*.js")
-    .pipe(concat("app.min.js"))
-    .pipe(uglify())
-    .pipe(gulp.dest("dist/js"));
+
+gulp.task('js', function() {
+  return browserify('./src/js/app.js').bundle()
+    .pipe(source('app.min.js'))
+    .pipe(streamify(uglify()))
+    .pipe(gulp.dest('dist/js'))
 });
 
 gulp.task("json", function() {

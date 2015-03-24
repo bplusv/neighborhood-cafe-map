@@ -17,14 +17,17 @@
   },
   "homepage": "https://github.com/lusv/neighborhood-map",
   "devDependencies": {
+    "browserify": "^9.0.3",
     "del": "^1.1.1",
     "gulp": "^3.8.10",
     "gulp-concat": "^2.5.2",
     "gulp-cssmin": "^0.1.6",
     "gulp-inject": "^1.2.0",
     "gulp-minify-html": "^0.1.8",
+    "gulp-streamify": "0.0.5",
     "gulp-uglify": "^1.0.2",
     "gulp-watch": "^4.2.0",
-    "main-bower-files": "^2.6.2"
+    "main-bower-files": "^2.6.2",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
