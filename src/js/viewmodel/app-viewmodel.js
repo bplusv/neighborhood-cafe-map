@@ -55,7 +55,7 @@
      * @return {Array<Place>} The filtered array of places by name.
      */
     self.filteredPlaces = ko.computed(function() {
-      var search = self.search();
+      var search = self.search().toLowerCase();
 
       return ko.utils.arrayFilter(self.places(), function(place) {
 
