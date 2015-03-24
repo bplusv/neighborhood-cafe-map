@@ -1,6 +1,12 @@
 ## Neighborhood Map Project (Juarez - El Paso)
 
-To install the project you need [Node.js](http://nodejs.org):
+You can checkout the app by opening the file "dist/index.html" using a modern web browser.
+You may use Google Chrome, Firefox, Safari or Internet Explorer >= 9.
+
+To update the project, please modify the files in the "src" folder.
+After your modifications, build the project into the dist folder.
+
+To build the project you need [Node.js](http://nodejs.org):
 - First run 'sudo npm install' to setup the required dependencies.
 - Next, run 'bower install' to retrieve front-end packages.
 - Finally, run 'gulp' to build the site into the dist folder.
@@ -21,7 +27,7 @@ $ gulp
 - Separation of concerns:
     * Views as templates in HTML.
     * Model as JavaScript POJO Classes.
-    * ViewModels as components (app, map & foursquare).
+    * ViewModels as components (app, map & fousquare).
 - Build process using GulpJS: genererates minified code to reduce size and HTTP requests.
 - Shows additional place info in an asynchonous manner, using the Foursquare API.
 - In the case of failed data retrievals, errors are handled and a friendly massage displayed.
