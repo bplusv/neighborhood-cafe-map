@@ -21,15 +21,3 @@ $ sudo npm install
 $ bower install
 $ gulp
 ```
-
-### Consulted Materials
-
-* [Node.js](http://nodejs.org) - evented I/O for the backend
-* [Gulp](http://gulpjs.com/) - the streaming build system
-* http://jairtrejo.mx/blog/2014/11/baby-steps-with-gulp
-* http://getbootstrap.com/components/
-* https://developers.google.com/maps/documentation/javascript/tutorial
-* https://developer.foursquare.com
-
-### Project hosted on github pages:
-* http://lusv.github.io/projects/p5/
